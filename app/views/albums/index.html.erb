@@ -2,14 +2,15 @@
 <h1>Albums</h1>
 
 <% if @albums.any? %>
-  <ul>
-    <% @albums.each do |album| %>
-    <li><%= link_to album.name, album_path(album) %></li>
-    <% end %>
-  </ul>
+<ul>
+  <% @albums.each do |album| %>
+  <li><%= link_to album.name, album_path(album) %></li>
+  <% end %>
+</ul>
 <% else %>
-  <p>There are no albums yet.</p>
+<p>There are no albums yet.</p>
 <% end %>
 
-
+<% if current_user && current_user.admin == true %>
 <p><%= link_to "Create new album", new_album_path %></p>
+<% end %>

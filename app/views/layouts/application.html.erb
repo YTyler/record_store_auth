@@ -10,9 +10,11 @@
 
 <body>
   <% if current_user %>
-    <%= current_user.username %> | <%= current_user.email %> | <%= link_to "Profile", "/users/#{current_user.id}" %> | <%= link_to "Sign out", '/signout' %>
+  <%= current_user.username %> | <%= current_user.email %> | <%= link_to "Profile", "/users/#{current_user.id}" %> | <%= link_to "Sign out", '/signout' %>
+  <% if current_user.admin == true %>
+  <p>Admin</p>
   <% end %>
-
+  <% end %>
   <p><%= flash[:alert] %></p>
   <%= flash[:notice] %>
   <%= yield %>

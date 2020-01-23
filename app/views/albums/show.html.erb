@@ -14,10 +14,12 @@
   <% else %>
     <p>No songs are listed for this album.</p>
   <% end %>
+  <% if current_user && current_user.admin == true %>
 <p><%= link_to "Add a song", new_album_song_path(@album) %></p>
 <p><%= link_to "Edit", edit_album_path(@album) %></p>
 <p><%= link_to "Delete", album_path(@album),
   :data => {:confirm => "You sure?",
   :method => "delete"} %></p>
+  <% end %>
 
   <p><%= link_to "Return to albums", albums_path %></p>
