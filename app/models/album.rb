@@ -1,6 +1,6 @@
 class Album < ApplicationRecord
   scope :rock, -> { where(genre: "Rock") }
-
+  has_one_attached :album_cover_photo
   # Alternate way of writing a class method with scope
   # def self.rock
   #   where(genre: "Rock")
