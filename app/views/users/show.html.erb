@@ -1,2 +1,10 @@
 <h1><%= @user.username %></h1>
 <h2>Email: <%= @user.email %></h2>
+
+<% if @user.profile_pic.attached? %>
+  <%= image_tag @user.profile_pic %>
+<% end %>
+
+<p><%= link_to "Edit Profile", "/users/#{@user.id}/edit" %></p>
+
+<p><%= link_to "Return to Albums List", albums_path %></p>

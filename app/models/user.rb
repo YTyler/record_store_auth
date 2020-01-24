@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :username, :presence => true, :uniqueness => true
   before_save :encrypt_password
 
+  has_one_attached :profile_pic
+
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt
     self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)

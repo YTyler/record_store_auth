@@ -1,0 +1,14 @@
+<h1>Edit Profile</h1>
+
+<%= render "layouts/errors", :object => @user %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :firstname %>
+  <%= f.text_field :firstname %>
+  <%= f.label :lastname %>
+  <%= f.text_field :lastname %>
+  <%= f.label :cover %>
+  <%= f.label :album_cover_photo %>
+  <%= f.file_field :album_cover_photo %>
+  <%= f.submit %>
+<% end %>
